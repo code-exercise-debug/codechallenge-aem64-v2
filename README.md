@@ -4,14 +4,15 @@ This project contains source generated from the AEM Maven Archetype (version 14)
 
 ## Task
 
-Create a component that would display user details returned from the API call-(Can display single user based on user id passed as queryparam)
+
 Create an OSGi service to contact the attached API endpoint (unsecured - credentials aren't necessary) with query parameters passed.
 
-Create a Servlet to be essentially a proxy to the service. Should return JSON with either the response from the API or an error message if not. Should have a well-formed JSON response regardless of the response. Will take URL params (via GET) to pass options to the service.
+Create a Path based Servlet(eg: /bin/pages) which would call the API through service and get the users. For each user returned in response create nodes through API in any content path (ex: /content/userdata/) with the username from the json response as the node name and some of the other details as properties to the node. If the servlet is hit the second time it would not override the nodes.
 
 All of the required Maven dependencies have been added to the project already.
 
 API URL: https://jsonplaceholder.typicode.com/users
+*Use DS Annotations
 
 ## Modules
 
